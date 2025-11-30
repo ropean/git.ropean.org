@@ -8,9 +8,21 @@
 const SOURCE_HOST = 'ropean.github.io';
 const SOURCE_ORIGIN = `https://${SOURCE_HOST}`;
 
+// Cache configuration
+const CACHE_TTL = 3600; // Default cache TTL: 1 hour (in seconds)
+
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
+    const cache = caches.default;
+
+    // Only cache GET requests
+    if (request.method === 'GET') {
+      const cachedResponse = await cache.match(request);
+      if (cachedResponse) {
+        return cachedResponse;
+      }
+    }
 
     // Build the target URL
     const targetUrl = new URL(url.pathname + url.search, SOURCE_ORIGIN);
@@ -55,12 +67,24 @@ export default {
         }
       }
 
-      // Return the proxied response
-      return new Response(response.body, {
+      // Set cache control header for successful responses
+      if (response.status >= 200 && response.status < 300) {
+        responseHeaders.set('Cache-Control', `public, max-age=${CACHE_TTL}`);
+      }
+
+      // Create the final response
+      const finalResponse = new Response(response.body, {
         status: response.status,
         statusText: response.statusText,
         headers: responseHeaders,
       });
+
+      // Cache successful GET responses
+      if (request.method === 'GET' && response.status >= 200 && response.status < 300) {
+        ctx.waitUntil(cache.put(request, finalResponse.clone()));
+      }
+
+      return finalResponse;
 
     } catch (error) {
       // Return error response
