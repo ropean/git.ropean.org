@@ -18,9 +18,14 @@ Cloudflare Worker 镜像代理，将 `git.ropean.org` 的请求转发到 `ropean
 ## 功能特点
 
 - 完整代理 `ropean.github.io` 的所有内容
+- **域名替换**：自动将响应中的 `ropean.github.io` 替换为 `git.ropean.org`
+  - 支持 HTML、CSS、JavaScript、JSON 等文本内容
+  - 支持 URL 编码的域名替换
+  - 二进制文件（图片等）不受影响
 - 自动处理重定向，保持域名一致性
 - 透明传递所有 HTTP 方法和请求体
 - 保留原始响应头和状态码
+- LocalStorage/SessionStorage 在镜像站点独立工作
 
 ## 部署步骤
 
@@ -77,6 +82,9 @@ npm test
 - 重定向 URL 重写
 - 错误处理
 - 响应头处理
+- 域名替换（HTML/JS/CSS）
+- URL 编码域名替换
+- 二进制内容透传
 
 ### 集成测试
 
