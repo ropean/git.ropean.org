@@ -47,7 +47,7 @@ npm run deploy
 部署完成后，在 Cloudflare Dashboard 中绑定域名：
 
 1. 进入 **Workers & Pages**
-2. 选择 `git-ropean-org-mirror` Worker
+2. 选择 `git-ropean-org` Worker
 3. 点击 **Settings** -> **Triggers**
 4. 在 **Custom Domains** 部分点击 **Add Custom Domain**
 5. 输入 `git.ropean.org`
@@ -106,7 +106,7 @@ npm run tail
 |--------|-----|------|
 | 源站点 | `ropean.github.io` | 被镜像的源网站 |
 | 目标域名 | `git.ropean.org` | 镜像站点域名 |
-| Worker 名称 | `git-ropean-org-mirror` | Cloudflare Worker 名称 |
+| Worker 名称 | `git-ropean-org` | Cloudflare Worker 名称 |
 
 ## License
 

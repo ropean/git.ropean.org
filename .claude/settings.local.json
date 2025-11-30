@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm test)",
+      "Bash(npm install:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nAdd caching mechanism with 1-hour default TTL\n\nImplement Cloudflare Workers Cache API to cache successful GET responses:\n- Check cache before fetching from origin\n- Cache responses with 2xx status codes\n- Set Cache-Control header to public, max-age=3600\n- Skip caching for non-GET requests and error responses\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
