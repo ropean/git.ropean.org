@@ -1,0 +1,17 @@
+name = "git-ropean-org-mirror"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+# Custom domain configuration
+# After deploying, bind custom domain in Cloudflare Dashboard:
+# Workers & Pages -> git-ropean-org-mirror -> Settings -> Triggers -> Custom Domains -> Add Custom Domain
+# Enter: git.ropean.org
+
+# Routes configuration (alternative to custom domains)
+# Uncomment and configure if using routes instead of custom domains:
+# routes = [
+#   { pattern = "git.ropean.org/*", zone_name = "ropean.org" }
+# ]
+
+[observability]
+enabled = true

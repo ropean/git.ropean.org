@@ -1,0 +1,22 @@
+{
+  "name": "git-ropean-org-mirror",
+  "version": "1.0.0",
+  "description": "Cloudflare Worker mirror for ropean.github.io",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail"
+  },
+  "keywords": [
+    "cloudflare",
+    "worker",
+    "mirror",
+    "proxy"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}
