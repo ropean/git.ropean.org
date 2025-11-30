@@ -72,6 +72,7 @@ npm test
 ```
 
 单元测试覆盖以下功能：
+
 - 请求代理到正确的源站点
 - 路径和查询参数保留
 - 重定向 URL 重写
@@ -102,11 +103,11 @@ npm run tail
 
 ## 配置说明
 
-| 配置项 | 值 | 说明 |
-|--------|-----|------|
-| 源站点 | `ropean.github.io` | 被镜像的源网站 |
-| 目标域名 | `git.ropean.org` | 镜像站点域名 |
-| Worker 名称 | `git-ropean-org` | Cloudflare Worker 名称 |
+| 配置项      | 值                 | 说明                   |
+| ----------- | ------------------ | ---------------------- |
+| 源站点      | `ropean.github.io` | 被镜像的源网站         |
+| 目标域名    | `git.ropean.org`   | 镜像站点域名           |
+| Worker 名称 | `git-ropean-org`   | Cloudflare Worker 名称 |
 
 ## License
 
