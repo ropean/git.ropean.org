@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 
 // Import the worker
-import worker from './index.js';
+import worker from '../src/index.js';
 
 // Mock fetch globally
 const mockFetch = vi.fn();

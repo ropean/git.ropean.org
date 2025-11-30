@@ -7,7 +7,9 @@
     "dev": "wrangler dev",
     "deploy": "wrangler deploy",
     "tail": "wrangler tail",
-    "test": "vitest run"
+    "test": "vitest run",
+    "test:integration": "bash test/mirror-test.sh local",
+    "test:source": "bash test/mirror-test.sh remote"
   },
   "keywords": [
     "cloudflare",

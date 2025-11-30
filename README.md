@@ -6,10 +6,12 @@ Cloudflare Worker 镜像代理，将 `git.ropean.org` 的请求转发到 `ropean
 
 ```
 ├── src/
-│   ├── index.js        # Worker 主代码
-│   └── index.test.js   # 单元测试
-├── wrangler.toml       # Cloudflare Wrangler 配置
-├── package.json        # npm 配置
+│   └── index.js          # Worker 主代码
+├── test/
+│   ├── index.test.js     # 单元测试
+│   └── mirror-test.sh    # 集成测试脚本
+├── wrangler.toml         # Cloudflare Wrangler 配置
+├── package.json          # npm 配置
 └── README.md
 ```
 
@@ -63,16 +65,32 @@ npm run dev
 
 ## 运行测试
 
+### 单元测试
+
 ```bash
 npm test
 ```
 
-测试覆盖以下功能：
+单元测试覆盖以下功能：
 - 请求代理到正确的源站点
 - 路径和查询参数保留
 - 重定向 URL 重写
 - 错误处理
 - 响应头处理
+
+### 集成测试
+
+测试源站点连通性：
+
+```bash
+npm run test:source
+```
+
+测试本地开发服务器（需先运行 `npm run dev`）：
+
+```bash
+npm run test:integration
+```
 
 ## 查看日志
 
